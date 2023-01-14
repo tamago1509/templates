@@ -1,0 +1,77 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+}
+
+.group {
+    display: flex;
+    justify-content: center;
+
+}
+
+.date-container {
+    display: flex;
+    justify-content: end;
+}
+
+.title {
+
+    text-decoration: wavy;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+    font-family: ;
+    color: rgb(62, 169, 226);
+    margin: 20px;
+}
+
+
+
+.pic2>img {
+    width: 500px;
+
+}
+
+.pic1>img {
+    width: 300px;
+
+}
+
+
+.graph1 {
+    width: 500px;
+
+
+}
+
+.pic {
+    margin: 10px;
+
+
+
+}
+
+.big-text {
+    font-size: 3em;
+}
+
+.graph2 {
+    width: 500px;
+
+
+}
+
+
+.stick1 {
+    transform: scale3d();
+}
+
+.date {
+    font-size: 1em;
+    margin: 20px;
+}
