@@ -61,7 +61,7 @@ inputPic2.addEventListener('change', async function (e) {
     img.setAttribute('src', src)
     img.setAttribute('width', "500px");
     img.classList.add('img-thumbnail');
-    pic1.appendChild(img);
+    pic2.appendChild(img);
     // pic.style.display = 'none';
     addPic2.style.display = 'none';
     pic2.style.backgroundColor = 'white'
