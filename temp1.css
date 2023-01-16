@@ -25,7 +25,6 @@ h1 {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 3em;
     font-weight: bold;
-    font-family: ;
     color: rgb(62, 169, 226);
     margin: 20px;
 }
@@ -44,14 +43,11 @@ h1 {
 
 
 .graph1 {
-    width: 500px;
-
-
+    width: 400px;
 }
 
 .pic {
     margin: 10px;
-
 
 
 }
@@ -67,11 +63,52 @@ h1 {
 }
 
 
-.stick1 {
-    transform: scale3d();
-}
+
 
 .date {
     font-size: 1em;
     margin: 20px;
+}
+
+.pic1,
+.pic2 {
+    width: 200px;
+    height: 200px;
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.addPic1,
+.addPic2 {
+    font-size: 2em;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.addPic1:hover {
+    cursor: pointer;
+}
+
+.addPic2:hover {
+    cursor: pointer;
+}
+
+input[type="file"] {
+    /* opacity: 0; */
+    display: none;
+    /* z-index: -1; */
+
+
+
+}
+
+.makeBigLetter {
+    color: aqua;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
 }
