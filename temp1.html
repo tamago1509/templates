@@ -20,49 +20,84 @@
     <div class="container my-3">
         <div class="row">
             <div class="col-8 offset-2">
-                <div class="input-title input-group mb-3">
-                    <input type="text" class="form-control" name="title" id="title">
-                </div>
-                <div class="title"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-8 offset-2 d-flex flex-wrap">
-                <div class="mb-3 pic ">
-                    <div class="pic1">
-                        <div class="addPic1">+
+                <div class="row">
+                    <div class="col-8 mr-2 ">
+                        <div class="input-title input-group mb-3">
+                            <input type="text" class="form-control" name="title" id="title">
                         </div>
-                        <input class="form-control inputPic1" type="file" id="pic1" name="pic1">
-
+                        <div class="title"></div>
                     </div>
                 </div>
-                <div class="graph1">
-                    <textarea class="form-control" placeholder="Leave your content here" id="graph1"
-                        name="graph1"></textarea>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-8 offset-2 d-flex flex-wrap">
-                <div class="graph2">
-                    <textarea class="form-control" placeholder="Leave your content here" id="graph2"
-                        name="graph2"></textarea>
-                </div>
-                <div class="pic pic2">
-                    <div class="addPic2">+
+                <div class="row">
+                    <div class="col-md-12 d-flex">
+                        <div class="mb-3 pic ">
+                            <div class="pic1">
+                                <div class="addPic1">+
+                                </div>
+                                <input class="form-control inputPic1" type="file" id="pic1" name="pic1">
+                            </div>
+                        </div>
+                        <div class="gif">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#search-gif">Search GIF</button>
+                            <div class="modal fade" id="search-gif" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Search for GIF</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div class="mb-3">
+                                                <label for="gif-name" class="col-form-label">Key words:</label>
+                                                <input type="text" class="form-control" id="gif-name">
+                                                <button class="btn btn-primary search-giphy">Find</button>
+                                            </div>
+
+
+                                            <div class="search-result">Hiiiii</div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-primary">Select</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="graph1">
+                            <textarea oninput="auto_grow(this)" class=" form-control"
+                                placeholder="Leave your content here" id="graph1" name="graph1"></textarea>
+                        </div>
                     </div>
-                    <input class="form-control inputPic2" type="file" id="pic2" name="pic2">
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-8 offset-2">
+                <div class="row">
+                    <div class="col-md-12 d-flex">
+                        <div class="graph2">
+                            <textarea oninput="auto_grow(this)" class="form-control"
+                                placeholder="Leave your content here" id="graph2" name="graph2"></textarea>
+                        </div>
+                        <div class="pic pic2">
+                            <div class="addPic2">+
+                            </div>
+                            <input class="form-control inputPic2" type="file" id="pic2" name="pic2">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8 offset-2">
 
-                <section class="date-container">
+                        <section class="date-container">
 
-                    <div class="date"></div>
-                </section>
-                <button class=" saveBtn btn btn-success">Save your draft</button>
+                            <div class="date"></div>
+                        </section>
+                        <button class=" saveBtn btn btn-success">Save your draft</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

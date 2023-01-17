@@ -26,28 +26,33 @@ h1 {
     font-size: 3em;
     font-weight: bold;
     color: rgb(62, 169, 226);
-    margin: 20px;
+    padding: 10px;
+    margin: 20px 0;
 }
 
 
 
 .pic2>img {
-    width: 500px;
+    object-fit: cover;
 
 }
 
 .pic1>img {
-    width: 300px;
+    object-fit: cover;
 
 }
 
+.img-thumbnail {
+    max-height: 300px;
+    max-width: 250px;
+}
 
 .graph1 {
     width: 400px;
 }
 
 .pic {
-    margin: 10px;
+    padding: 20px;
 
 
 }
@@ -58,7 +63,7 @@ h1 {
 
 .graph2 {
     width: 500px;
-
+    padding: 20px;
 
 }
 
@@ -72,8 +77,8 @@ h1 {
 
 .pic1,
 .pic2 {
-    width: 200px;
-    height: 200px;
+    min-width: 200px;
+    min-height: 200px;
     background-color: beige;
     display: flex;
     justify-content: center;
@@ -111,4 +116,10 @@ input[type="file"] {
     font-size: 2em;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+
 }

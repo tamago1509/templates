@@ -13,8 +13,67 @@ const graph2TextArea = document.querySelector('#graph2');
 const displayGraph1 = document.querySelector('.graph1');
 const displayGraph2 = document.querySelector('.graph2');
 const saveBtn = document.querySelector('.saveBtn');
-
+const inputGif = document.querySelector('#gif-name');
 const date = document.querySelector('.date');
+const searchGif = document.querySelector('.search-giphy');
+
+
+searchGif.addEventListener("click", function (e) {
+    let userInput = inputGif.value;
+    searchGiphy(userInput);
+})
+
+function searchGiphy(searchQuery) {
+    var url =
+        "https://api.giphy.com/v1/gifs/search?api_key=TTkCF59EPD3EfHcwFBm10PnHLjTan4fg&q="
+        + searchQuery;
+
+    // AJAX Request
+
+    var GiphyAJAXCall = new XMLHttpRequest();
+    GiphyAJAXCall.open("GET", url);
+    GiphyAJAXCall.send();
+
+    GiphyAJAXCall.addEventListener("load", async function (data) {
+        var actualData = await data.target.response;
+        pushToDOM(actualData);
+
+
+    });
+}
+function pushToDOM(response) {
+
+    // Turn response into real JavaScript object
+    response = JSON.parse(response);
+
+    // Drill down to the data array
+    var images = response.data;
+
+    // Find the container to hold the response in DOM
+    var container = document.querySelector(".search-result");
+
+    // Clear the old content since this function
+    // will be used on every search that we want
+    // to reset the div
+    container.innerHTML = "";
+
+    // Loop through data array and add IMG html
+    images.forEach(function (image) {
+
+        // Find image src
+        var src = image.images.fixed_height.url;
+
+        // Concatenate a new IMG tag
+        container.innerHTML += "<img src='"
+            + src + "' class='container-image' />";
+    });
+}
+
+
+function auto_grow(element) {
+    element.style.height = "5px";
+    element.style.height = (element.scrollHeight) + "px";
+}
 
 saveBtn.addEventListener('click', function () {
     divTitle.innerText = inputTitle.value;
