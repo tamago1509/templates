@@ -14,10 +14,37 @@ const displayGraph1 = document.querySelector('.graph1');
 const displayGraph2 = document.querySelector('.graph2');
 const saveBtn = document.querySelector('.saveBtn');
 const inputGif = document.querySelector('#gif-name');
+const searchGifBtn = document.querySelector('#search-gif-btn');
 const date = document.querySelector('.date');
 const searchGif = document.querySelector('.search-giphy');
+const selectGif = document.querySelector('.select_gif')
+const showGif = document.querySelector('.gif')
+const searchResult = document.querySelector('.search-result');
 
 
+
+searchResult.addEventListener('click', select_gif)
+
+function select_gif(e) {
+    // console.log(e.target.nodeName)
+    if (e.target.nodeName === 'IMG') {
+        e.target.style.backgroundColor = "rgb(37, 150, 190)";
+        const selectedGif = e.target.src;
+        // console.log(selectedGif)
+        selectGif.addEventListener('click', () => {
+            const img = document.createElement('img');
+            img.setAttribute('src', selectedGif);
+            img.setAttribute('max-width', '100px');
+            img.setAttribute('max-height', '100px');
+            showGif.append(img);
+
+            document.querySelector('.btn-close').click();
+            searchGifBtn.classList.add('d-none')
+        })
+    }
+
+
+}
 searchGif.addEventListener("click", function (e) {
     let userInput = inputGif.value;
     searchGiphy(userInput);
@@ -65,7 +92,7 @@ function pushToDOM(response) {
 
         // Concatenate a new IMG tag
         container.innerHTML += "<img src='"
-            + src + "' class='container-image' />";
+            + src + "' class='container-image p-2' />";
     });
 }
 
@@ -74,6 +101,8 @@ function auto_grow(element) {
     element.style.height = "5px";
     element.style.height = (element.scrollHeight) + "px";
 }
+
+
 
 saveBtn.addEventListener('click', function () {
     divTitle.innerText = inputTitle.value;
@@ -139,5 +168,7 @@ saveBtn.addEventListener('click', () => {
     const pElement = document.createElement('p');
     pElement.innerText = msg1.charAt(0).toUpperCase() + msg1.slice(1);
     displayGraph2.innerText = pElement.innerText;
+    document.querySelector('.editBtn').classList.toggle('d-none');
+    saveBtn.classList.toggle('d-none');
 
 })

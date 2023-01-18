@@ -8,6 +8,11 @@ h1 {
     text-align: center;
 }
 
+.container {
+    border: solid 1px;
+    padding: 20px;
+}
+
 .group {
     display: flex;
     justify-content: center;
@@ -22,7 +27,7 @@ h1 {
 .title {
 
     text-decoration: wavy;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Satisfy', cursive;
     font-size: 3em;
     font-weight: bold;
     color: rgb(62, 169, 226);
