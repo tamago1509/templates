@@ -20,6 +20,7 @@ const searchGif = document.querySelector('.search-giphy');
 const selectGif = document.querySelector('.select_gif')
 const showGif = document.querySelector('.gif')
 const searchResult = document.querySelector('.search-result');
+const editBtn = document.querySelector('.editBtn');
 
 
 
@@ -168,7 +169,8 @@ saveBtn.addEventListener('click', () => {
     const pElement = document.createElement('p');
     pElement.innerText = msg1.charAt(0).toUpperCase() + msg1.slice(1);
     displayGraph2.innerText = pElement.innerText;
-    document.querySelector('.editBtn').classList.toggle('d-none');
+    editBtn.classList.toggle('d-none');
     saveBtn.classList.toggle('d-none');
 
 })
+
