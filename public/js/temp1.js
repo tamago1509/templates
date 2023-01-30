@@ -23,34 +23,6 @@ const searchResult = document.querySelector('.search-result');
 const editBtn = document.querySelector('.editBtn');
 
 
-
-searchResult.addEventListener('click', select_gif)
-
-function select_gif(e) {
-    // console.log(e.target.nodeName)
-    if (e.target.nodeName === 'IMG') {
-        e.target.style.backgroundColor = "rgb(37, 150, 190)";
-        const selectedGif = e.target.src;
-        // console.log(selectedGif)
-        selectGif.addEventListener('click', () => {
-            const img = document.createElement('img');
-            img.setAttribute('src', selectedGif);
-            img.setAttribute('max-width', '100px');
-            img.setAttribute('max-height', '100px');
-            showGif.append(img);
-
-            document.querySelector('.btn-close').click();
-            searchGifBtn.classList.add('d-none')
-        })
-    }
-
-
-}
-searchGif.addEventListener("click", function (e) {
-    let userInput = inputGif.value;
-    searchGiphy(userInput);
-})
-
 function searchGiphy(searchQuery) {
     var url =
         "https://api.giphy.com/v1/gifs/search?api_key=TTkCF59EPD3EfHcwFBm10PnHLjTan4fg&q="
@@ -96,6 +68,37 @@ function pushToDOM(response) {
             + src + "' class='container-image p-2' />";
     });
 }
+
+
+searchResult.addEventListener('click', select_gif)
+
+function select_gif(e) {
+    e.preventDefault()
+    // console.log(e.target.nodeName)
+    if (e.target.nodeName === 'IMG') {
+        e.target.style.backgroundColor = "rgb(37, 150, 190)";
+        const selectedGif = e.target.src;
+        // console.log(selectedGif)
+        selectGif.addEventListener('click', () => {
+            const img = document.createElement('img');
+            img.setAttribute('src', selectedGif);
+            img.setAttribute('max-width', '100px');
+            img.setAttribute('max-height', '100px');
+            showGif.append(img);
+            document.querySelector('.gif_link').value = selectedGif;
+            document.querySelector('.btn-close').click();
+            searchGifBtn.classList.add('d-none')
+        })
+    }
+
+
+}
+searchGif.addEventListener("click", function (e) {
+    e.preventDefault();
+    let userInput = inputGif.value;
+    searchGiphy(userInput);
+})
+
 
 
 function auto_grow(element) {
