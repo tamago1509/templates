@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
 const express = require('express');
 const app = express();
 const mongoose = require("mongoose");
@@ -5,7 +8,10 @@ let ejs = require('ejs');
 const path = require('path');
 const Template1 = require('./models/template1');
 const bodyParser = require('body-parser');
-
+const cloudinary = require('cloudinary').v2;
+const multer = require('multer');
+const { storage } = require('./cloudinary/cloudconfig')
+const upload = multer({ storage })
 
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -26,11 +32,14 @@ mongoose.connect("mongodb://localhost:27017/diary", {
 app.get('/template/new', (req, res) => {
     res.render('temp1')
 })
-app.post('/template/new', async (req, res) => {
-    const content = req.body;
-    const temp = new Template1(content);
+app.post('/template/new', upload.any(), async (req, res) => {
+    const temp = req.body;
+    const pics = await req.files.map(f => ({ src: f.path, filename: f.filename }));
+    const content = new Template1(temp);
+    content.pic1 = pics[0].src;
+    content.pic2 = pics[1].src;
     // await temp.save();
-    console.log(temp)
+    console.log(content)
     res.render('create', { content });
 })
 app.listen('3000', () => {
