@@ -18,21 +18,21 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-8">
+            <div class="col-12">
                 <h1 class="title">
                     <%= content.title %>
                 </h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
-                <div class="gif-container">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="gif-container m-3">
                     <img src="<%= content.gif_link  %> " alt="gif">
                 </div>
-                <div class="pic pic1">
-                    <img src="<%= content.pic1%>" alt="pic1">
+                <div class="pic pic1 img-thumbnail m-2">
+                    <img class="diary-img" src="<%= content.pic1%>" alt="pic1">
                 </div>
-                <div class="graph1">
+                <div class="graph1 m-4">
                     <p><span class="makeBigLetter">
                             <%= content.graph1.charAt(0) %>
                         </span>
@@ -42,28 +42,25 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-12 d-flex justify-content-center">
 
-                <div class="graph2">
+                <div class="graph2 m-3">
                     <p>
                         <%= content.graph2 %>
                     </p>
                 </div>
-                <div class="pic pic2">
-                    <img src="<%= content.pic2 %>" alt="pic2">
+                <div class="pic pic2  img-thumbnail m-2">
+                    <img class="diary-img" src="<%= content.pic2 %>" alt="pic2">
                 </div>
             </div>
         </div>
         <div class="date-container">
             <p><%- new Date() %></p>
         </div>
-        <div class="btn btn-danger">Edit your diary</div>
+        <div class="btn-container d-flex justify-content-center">
+            <button class="btn btn-danger"> Edit your diary</button>
+        </div>
     </div>
-
-    <!-- <div class="gif"></div>
-    <section class="date-container">
-        <div class="date"></div>
-    </section> -->
 
 </body>
 

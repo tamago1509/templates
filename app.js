@@ -38,9 +38,14 @@ app.post('/template/new', upload.any(), async (req, res) => {
     const content = new Template1(temp);
     content.pic1 = pics[0].src;
     content.pic2 = pics[1].src;
-    // await temp.save();
-    console.log(content)
-    res.render('create', { content });
+    await content.save();
+    console.log(content);
+    res.render('show', { content });
+})
+app.get("/template/show/:id", async (req, res) => {
+    const id = req.params;
+    const content = await Template1.findById(id);
+    res.render('show', { content });
 })
 app.listen('3000', () => {
     console.log("Connection is ready")
